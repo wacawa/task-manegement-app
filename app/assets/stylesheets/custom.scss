@@ -73,6 +73,26 @@ p {
   text-decoration: none;
 }
 
+ul.navbar-nav li {
+  .header-item {
+    color: white;
+    &:hover {
+      color: gray;
+      background-color: transparent;
+    }
+  }
+  &.dropdown {
+    .header-item {
+      &:hover {
+        color: gray;
+      }
+      &, &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+}
+/*
 .header-item {
   color: white !important;
   &:hover {
@@ -81,6 +101,14 @@ p {
   }
   &:focus {
     background-color: transparent !important;
+  }
+}
+*/
+
+li.dropdown-title a {
+  &, &:hover, &:focus{
+    font-size: 0.8em;
+    background-color: silver;
   }
 }
 
