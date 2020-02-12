@@ -13,5 +13,6 @@ ja:
           updated_at: 更新日
         task:
           title: 名称
+          content: 詳細
           created_at:
 
