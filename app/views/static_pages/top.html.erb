@@ -7,7 +7,11 @@
         <p>
           このアプリは簡易的なToDo管理ツールです。<br><br>
           ↓初めてのご利用↓<br>
-          <%= link_to "アカウント作成", logged_in? ? '#' : signup_path, class: "btn btn-lg btn-primary signup-btn", disabled: logged_in? %>            
+          <% if logged_in? && !@current_user.admin? %>
+            <%= link_to "アカウント作成", '#', class: "btn btn-lg btn-primary signup-btn", disabled: true %>
+          <% else %>
+            <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-primary signup-btn" %>
+          <% end %>
         </p>
       </div>
       <div class="login col-md-5 col-md-offset-1">
