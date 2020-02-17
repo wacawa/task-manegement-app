@@ -1,7 +1,25 @@
+div.task-new-btn {
+  float: right;
+}
+
+.btn-task {
+  margin-top: 10px;
+}
+
 .label-task {
   margin-top: 5px;
 }
 
-.btn-task {
-  margin-top: 5px;
+.task-title {
+  font-size: 1.2em;
+}
+
+table.table tr td div {
+  line-height: 50px;
+}
+
+.show-table th {
+  width: 200px;
+  background-color: #EEE;
+  text-align: center;
 }

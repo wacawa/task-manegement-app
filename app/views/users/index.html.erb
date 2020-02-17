@@ -9,13 +9,21 @@
         <th><%= User.human_attribute_name :name %></th>
       </tr>
     </thead>
-
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, user %></td>
-      </tr>
-    <% end %>
-
+    <tbody>
+      <% @users.each do |user| %>
+        <!--<tr height="40">-->
+        <tr>
+          <td>
+            <div><%= link_to user.name, user %></div>
+            <% if user.admin? %>
+              <div><span class="label label-default label-primary">管理者</span></div>
+            <% else %>
+              <div><span class="label label-default label-success">一般</span></div>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
   <%= will_paginate %>  
 </div>
