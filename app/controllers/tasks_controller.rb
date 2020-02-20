@@ -1,38 +1,35 @@
 class TasksController < ApplicationController
-  before_action :set_user, only: [:new, :create, :index, :show, :edit]
+  before_action :set_user#, only: [:new, :create, :index, :show, :edit]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: []
 
   def new
     @task = Task.new
   end
   
   def create
-    @task = Task.new()
-    if @task.valid?
-      @task.save
+    @task = Task.new(task_params)
+    if @task.save
       flash[:success] = 'タスクを作成しました。'
-      redirect_to user_tasks_url
+      redirect_to user_task_url(@user, @task)
     else
-      flash[:danger] = '作成できませんでした。'
       render :new
     end
   end
-    
+
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order(id: "DESC")
   end
   
   def show
-    @task = Task.find(params[:id])
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
   
   def update
-    @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
-      flash[:success] = 'タスクを更新しました。'
+      flash[:success] = 'タスクを作成しました。'
       redirect_to user_task_url(@task)
     else
       flash[:danger] = 'タスクの更新に失敗しました。'
@@ -41,16 +38,10 @@ class TasksController < ApplicationController
   end
   
   def destroy
-    @task = Task.find(params[:id])
     @task.destroy
     redirect_to user_tasks_url
   end
 
-  
-  def set_user
-     @user = User.find(params[:user_id])
-  end
-  
   private
   
     def task_params
@@ -58,4 +49,14 @@ class TasksController < ApplicationController
     end
   
 
+    #beforeアクション
+    
+    def set_user
+       @user = User.find(params[:user_id])
+    end
+  
+    def set_task
+       @task = Task.find(params[:id])
+    end
+      
 end

@@ -5,7 +5,7 @@
   <div class="col-md-8 col-md-offset-2">
     <table class="table show-table table-bordered">
       <tr>
-        <th>ID</th>
+        <th class="col-md-2">ID</th>
         <td><%= @task.id %></td>
       </tr>
       <tr>
@@ -13,8 +13,8 @@
         <td><%= @task.title %></td>
       </tr>
       <tr>
-        <th>詳細</th>
-        <td><%= @task.content %></td>
+        <th><div>詳細</div></th>
+        <td><%= simple_format(text_url_to_link(@task.content)) %></td>
       </tr>
       <tr>
         <th>作成日</th>

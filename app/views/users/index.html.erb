@@ -1,7 +1,7 @@
 <% provide(:title, "Users") %>
 <h1>利用者一覧</h1>
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-8 col-md-offset-2">
   <%= will_paginate %>
   <table class="table table-condensed table-hover" id="table-users">
     <thead>
@@ -11,7 +11,6 @@
     </thead>
     <tbody>
       <% @users.each do |user| %>
-        <!--<tr height="40">-->
         <tr>
           <td>
             <div><%= link_to user.name, user %></div>
@@ -19,6 +18,9 @@
               <div><span class="label label-default label-primary">管理者</span></div>
             <% else %>
               <div><span class="label label-default label-success">一般</span></div>
+              <div class="user-delete">
+                <%= link_to "削除", user, method: :delete, class: "btn btn-danger" %>
+              </div>
             <% end %>
           </td>
         </tr>

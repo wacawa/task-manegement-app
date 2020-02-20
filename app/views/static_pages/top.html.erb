@@ -6,12 +6,14 @@
         <h1 class="main-title">TaskApp</h1>
         <p>
           このアプリは簡易的なToDo管理ツールです。<br><br>
-          ↓初めてのご利用↓<br>
-          <% if logged_in? && !@current_user.admin? %>
-            <%= link_to "アカウント作成", '#', class: "btn btn-lg btn-primary signup-btn", disabled: true %>
-          <% else %>
-            <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-primary signup-btn" %>
-          <% end %>
+            ↓初めてのご利用↓<br>
+            <div class="col-md-6 col-md-offset-3">
+              <% if logged_in? && !@current_user.admin? %>
+                <%= link_to "アカウント作成", '#', class: "btn btn-block btn-lg btn-primary signup-btn", disabled: true %>
+              <% else %>
+                <%= link_to "アカウント作成", signup_path, class: "btn btn-block btn-lg btn-primary signup-btn" %>
+              <% end %>
+            </div>
         </p>
       </div>
       <div class="login col-md-5 col-md-offset-1">

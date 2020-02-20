@@ -9,3 +9,7 @@ table.table td div {
 .show-table th {
   text-align: center;
 }
+
+#table-users tbody tr td div.user-delete {
+  float: right;
+}
