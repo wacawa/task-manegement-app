@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   before_action :set_user#, only: [:new, :create, :index, :show, :edit]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: []
+  before_action :logged_in_user
+  before_action :correct_user
 
   def new
     @task = Task.new
@@ -18,7 +19,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all.order(id: "DESC")
+    @tasks = Task.where(user_id: params[:user_id]).order(id: "DESC")
   end
   
   def show
