@@ -9,6 +9,10 @@ module ApplicationHelper
     end
     return text
   end
+  
+  def hbr(text)
+    text.gsub(/\r\n/, "<br />")
+  end
 
   def full_title(page_name = "")
     base_title = "Sample"

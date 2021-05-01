@@ -9,7 +9,7 @@
             ↓初めてのご利用↓<br>
             <div class="col-md-6 col-md-offset-3">
               <% if logged_in? && !@current_user.admin? %>
-                <%= link_to "アカウント作成", '#', class: "btn btn-block btn-lg btn-primary signup-btn", disabled: true %>
+                <%= link_to "アカウント作成", signup_path, class: "btn btn-block btn-lg btn-primary signup-btn disabled" %>
               <% else %>
                 <%= link_to "アカウント作成", signup_path, class: "btn btn-block btn-lg btn-primary signup-btn" %>
               <% end %>

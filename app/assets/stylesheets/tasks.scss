@@ -21,7 +21,13 @@ div.task-new-btn {
 .show-table th {
   background-color: #EEE;
   text-align: center;
-  div {
-    line-height: 135px;
+}
+
+.task-content {
+  .content-title, .content-content {
+    &, p {
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
 }

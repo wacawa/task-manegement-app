@@ -22,7 +22,8 @@
               <td>
                 <div>
                   <%= link_to "編集", edit_user_task_path(@user, task), class: "btn btn-success" %>
-                  <%= link_to "削除", user_task_path(@user, task), method: :delete, class: "btn btn-danger" %>
+                  <%= link_to "削除", user_task_path(@user, task), method: :delete,
+                    data: {confirm: "#{task.title}を削除します。"}, class: "btn btn-danger" %>
                 </div>
               </td>
             </tr>      
